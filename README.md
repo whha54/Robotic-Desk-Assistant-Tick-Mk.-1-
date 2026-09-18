@@ -19,7 +19,7 @@ I used STM32CubeMX to configure the pins. MX automatically generates the code fo
 The code is pretty basic. I made my own BMI323_Read function as the BMI323 first sends out some dummy bytes before sending real data, so I needed to filter those out myself. I also used software hysteresis to prevent state flickering on the screen. Roll readings are not perfect and flicker just above or just below the true reading, so having two states share the same boundaries (e.g. Pomodoro timer is activated when roll is within 90 degrees to 180 degrees, face is activiated when roll is within 0 degrees to 90 degrees) can cause rapid state changes as the readings fluctuate from just below 90 to just above 90 degrees. I used a complementary filter to get those roll angles. I made sure to fix the wraparound error and also utilized a dynamic alpha so that the readings had less latency. I wrote more information as comments in the code itself.
 
 # CAD of Case
-I didn't want to make something super complicated, so I just made a cube with chamfered edges. I hollowed it out and used put in some standoffs for the OLED and the PCB so that they can be mounted. I also put in a power switch holder and made a cutout for the USB-C port. I also made it so that it would snap together using a snap case and lid.
+I didn't want to make something super complicated, so I just made a cube with chamfered edges. I hollowed it out and put in some standoffs for the OLED and the PCB so that they can be mounted. I also put in a power switch holder and made a cutout for the USB-C port. I also made it so that it would snap together using a snap case and lid.
 
 # Future Improvements
 -4 layer board to make the PCB smaller
